@@ -3,7 +3,7 @@ import { REQUEST_QUOTES, RECEIVE_QUOTES } from "./../actions/QuoteActions";
 export default function QuotesReducer(
   state = {
     isFetching: false,
-    items: [],
+    quotes: [],
     lastUpdated: null
   },
   action
@@ -16,7 +16,7 @@ export default function QuotesReducer(
     case RECEIVE_QUOTES:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.posts,
+        quotes: action.quotes,
         lastUpdated: action.receivedAt
       });
     default:

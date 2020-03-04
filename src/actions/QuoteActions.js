@@ -1,3 +1,4 @@
+// import fetch from "cross-fetch";
 import defaultOptions from "./../fetchOptions";
 export const REQUEST_QUOTES = "REQUEST_QUOTES";
 export const RECEIVE_QUOTES = "RECEIVE_QUOTES";
@@ -12,13 +13,17 @@ function requestQuotes(params) {
 function receiveQuotes(json) {
   return {
     type: RECEIVE_QUOTES,
-    quotes: json.data.rateQuotes.map(items => items.properties),
+    quotes: json.rateQuotes.map(items => items),
     receivedAt: Date.now()
   };
 }
 
-export function fetchQuotes(params) {
+export default function fetchQuotes(params) {
   const { loanSize, creditScore, propertyType, occupancy } = params;
+  console.log(
+    "process.env.REACT_APP_AUTH_TOKEN",
+    process.env.REACT_APP_AUTH_TOKEN
+  );
   return dispatch => {
     dispatch(requestQuotes({ loanSize, creditScore, propertyType, occupancy }));
     return fetch(
@@ -26,7 +31,9 @@ export function fetchQuotes(params) {
       defaultOptions
     )
       .then(response => response.json())
-      .then(json => dispatch(receiveQuotes(json)))
+      .then(json => {
+        dispatch(receiveQuotes(json));
+      })
       .catch(error => console.error(error));
   };
 }

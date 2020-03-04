@@ -1,6 +1,6 @@
 const defaultOptions = {
   headers: {
-    Authorization: process.env.AUTH_TOKEN
+    Authorization: process.env.REACT_APP_AUTH_TOKEN
   }
 };
 export default defaultOptions;
