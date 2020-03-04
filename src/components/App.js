@@ -6,7 +6,7 @@ import QuoteRatesContainer from "./QuoteRatesContainer";
 
 const store = createStore(QuoteReducer);
 
-export default class App extends Component() {
+export default class App extends Component {
   render() {
     return (
       <Provider store={store}>

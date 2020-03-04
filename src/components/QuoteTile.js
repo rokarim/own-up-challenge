@@ -1,7 +1,7 @@
-import React from "react";
+// import React from "react";
 
-const QuotesTile = props => {
-  return <></>;
-};
+// const QuotesTile = props => {
+//   return <></>;
+// };
 
-export default QuotesTile;
+// export default QuotesTile;

@@ -1,6 +1,6 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
-class SearchComponent extends Component {
+export default class SearchComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {};
